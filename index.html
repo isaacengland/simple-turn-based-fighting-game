@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fight Game</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <h1>Fight Game</h1>
+    <div class="grid-layout">
+      <div class="player-side">
+        <label class="player-name-label">Player</label>
+        <div class="break"></div>
+        <div class="player-health">
+          <div class="player-health-bar">
+            <label class="player-health-label"></label>
+          </div>
+        </div>
+        <div class="break"></div>
+        <div class="player-weapons">
+          <button
+            class="player-weapon-axe-button"
+            type="button"
+            onclick="humanPlayerSelectWeapon(this)"
+          >
+            <div class="weapon-info">
+              <p>
+                <span class="weapon-name">Axe</span>
+                <br />
+                Damage: 20-25
+                <br />
+                Accuracy: 50%
+              </p>
+            </div>
+            <img src="images/axe.png" />
+          </button>
+          <button
+            class="player-weapon-sword-button"
+            type="button"
+            onclick="humanPlayerSelectWeapon(this)"
+          >
+            <div class="weapon-info">
+              <p>
+                <span class="weapon-name">Sword</span>
+                <br />
+                Damage: 7-10
+                <br />
+                Accuracy: 85%
+              </p>
+            </div>
+            <img src="images/sword.png" />
+          </button>
+          <button
+            class="player-weapon-bow-button"
+            type="button"
+            onclick="humanPlayerSelectWeapon(this)"
+          >
+            <div class="weapon-info">
+              <p>
+                <span class="weapon-name">Bow</span>
+                <br />
+                Damage: 10-15
+                <br />
+                Accuracy: 65%
+              </p>
+            </div>
+            <img src="images/bow.png" />
+          </button>
+        </div>
+      </div>
+      <div class="computer-side">
+        <label class="computer-name-label">Computer</label>
+        <div class="break"></div>
+        <div class="computer-health">
+          <div class="computer-health-bar">
+            <label class="computer-health-label"></label>
+          </div>
+        </div>
+        <div class="break"></div>
+        <div class="computer-weapons">
+          <button class="computer-weapon-axe-button" type="button">
+            <img src="images/axe.png" />
+          </button>
+          <button class="computer-weapon-sword-button" type="button">
+            <img src="images/sword.png" />
+          </button>
+          <button class="computer-weapon-bow-button" type="button">
+            <img src="images/bow.png" />
+          </button>
+        </div>
+      </div>
+      <div class="combat-grid">
+        <label class="announcement-label"></label>
+        <button class="start-button" type="button" onclick="startGame()">
+          Start Game
+        </button>
+      </div>
+    </div>
+    <script src="scripts/fight-game.js" async defer></script>
+  </body>
+</html>

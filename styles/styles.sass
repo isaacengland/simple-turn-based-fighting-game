@@ -1,0 +1,184 @@
+html                //* Not much documentation for this one, it's pretty thrown together
+    font-size: 16px // TODO: Get custom fonts working
+    width: 100%
+    height: 100%
+    background-color: #1d1d1d
+
+h1
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 2em
+    font: bold 3em "Segoe Script", sans-serif
+    color: #cf291d
+
+.break
+    width: 100%
+
+.grid-layout
+    display: grid
+    grid-template-columns: auto auto auto
+    grid-template-rows: auto 20vh
+    justify-items: center
+    & > .player-side, .computer-side
+        display: flex
+        flex-flow: wrap
+
+.player-side
+    grid-column: 1
+    display: flex
+    justify-content: center
+    align-items: center
+
+.combat-grid
+    grid-column: 2
+    grid-row: 1/3
+    display: grid
+    grid-template-rows: auto 20vh
+    place-items: center
+    & > .start-button
+        grid-row: 2
+    & > .announcement-label
+        grid-row: 1
+        display: flex
+        justify-content: center
+        align-items: center
+        width: fit-content
+        height: fit-content
+        overflow-wrap: break-word
+        white-space: nowrap
+        margin-top: 50%
+        color: #cf291d
+        font-family: sans-serif
+        transition: all 0.5s ease-out
+
+.computer-side
+    grid-column: 3
+    display: flex
+    justify-content: center
+    align-items: center
+
+.player-name-label, .computer-name-label
+    font: 2em "Dotum", sans-serif
+    margin-bottom: 1em
+    color: #bfbfbf
+
+.player-health-bar, .computer-health-bar
+    width: 360px
+    height: 20px
+    margin: auto auto 1em auto
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    background-color: #363636
+    border: 4px solid #464646
+    border-radius: 1em
+    overflow: hidden
+
+.player-health-label, .computer-health-label
+    color: black
+    background-color: green
+    height: 20px
+    border-radius: 1em
+    font-family: 'Segoe Script'
+
+.player-weapons, .computer-weapons
+    & > *
+        width: 8em
+        height: 8em
+        background-color: transparent
+        border: 4px solid #ececec
+        border-radius: 15px
+    & > .player-weapon-sword-button, .computer-weapon-sword-button
+        margin: 0 1rem 0 1rem
+    & img
+        width: 100%
+        height: 100%
+        object-fit: contain
+
+.start-button, .attack-button
+    width: 16rem
+    height: 8rem
+    margin-top: 4em
+    font: 1.5em "Segoe Script"
+    color: #ececec
+    border: 4px solid #ececec
+    border-radius: 15px
+
+.weapon-info
+    width: 10em
+    height: 10em
+    background-color: #9e9e9e
+    opacity: .8
+    position: absolute
+    transform: translate(-50%, -50%)
+    border-radius: 5%
+    box-shadow: 0 0 20px rgba(16, 0, 54, 0.2)
+    transition: 0.1s ease-out
+
+.weapon-name
+    border-bottom: 2px solid black
+
+br
+    margin-top: 1em
+
+button:disabled
+    opacity: 0.5
+    cursor: not-allowed
+    transition-play-state: paused //TODO: Get this working as well
+
+/* Animations */
+
+.player-weapons > *
+    width: 8em
+    height: 8em
+    background-color: transparent
+    border: 4px solid #ececec
+    border-radius: 15px
+    display: blockW
+    background: linear-gradient(to right, black 50%, white 50%)
+    background-size: 200% 100%
+    background-position: right bottom
+    transition: all .5s ease-out
+    &:hover
+        background-position: left bottom
+    &.selected
+        background: linear-gradient(to left, #1d1d1d 50%, #cf291d 50%) left
+        background-size: 200%
+        transition: 0.5s ease-out
+
+.player-weapons > button,
+.start-button,
+.attack-button
+    background: linear-gradient(to left, #1d1d1d 50%, #cf291d 50%) right
+    background-size: 200%
+    cursor: pointer
+    transition: all .5s ease-out
+    &:hover
+        background-position: left bottom
+        transition: all .5s ease-out
+
+.computer-weapons button
+    background-color: transparent
+    background: linear-gradient(to left, #1d1d1d 50%, #cf291d 50%) right
+    background-size: 200%
+    transition: 0.5s ease-out
+
+    &.selected
+        background: linear-gradient(to left, #1d1d1d 50%, #cf291d 50%) left
+        background-size: 200%
+        transition: 0.5s ease-out
+
+    &.selected.reset
+        background: linear-gradient(to left, #1d1d1d 50%, #cf291d 50%) right
+        background-size: 200%
+        transition: 0.5s ease-out
+
+.announcement-label
+    transition: all 1s ease-out
+
+    &.update
+        transform: translateY(100%)
+        opacity: 0
+        transition: transform 1s linear .75s, opacity 1s linear .75s
